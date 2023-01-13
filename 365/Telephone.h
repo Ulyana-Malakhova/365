@@ -49,6 +49,7 @@ public:
 	Touch_phone(Current_state current_state, Dimensions dimensions, System_t system_t, Screen screen, General_data general_data, Touch touch);
 	void read1();
 	void display1();
+	int* energy_saving(int s, int a);
 	void camera_pixels();
 	void check_year();
 };

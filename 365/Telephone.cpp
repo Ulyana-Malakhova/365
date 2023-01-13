@@ -186,3 +186,28 @@ void Touch_phone::read1() {
 		 }
 	 }
  }
+ int* Touch_phone::energy_saving(int s, int a) {
+	 int f = current_state.getCharge();
+	 if (a == 1) {
+		 if (s >= f) {
+			 cout << "Включен режим энергосбережения" << endl;
+			 current_state.setEnergy("yes");
+		 }
+		 else {
+			 cout << "Заряд телефона больше введенного" << endl;
+		 }
+		 s -= f;
+		 return &s;
+	 }
+	 if (a == 2) {
+		 if (s <= f) {
+			 cout << "Режим энергосбережения выключен" << endl;
+			 current_state.setEnergy("no");
+		 }
+		 else {
+			 cout << "Заряд телефона меньше введенного" << endl;
+		 }
+		 s -= f;
+		 return &s;
+	 }
+ }
