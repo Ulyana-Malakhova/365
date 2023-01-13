@@ -12,6 +12,7 @@
 #include "System_t.h"
 #include "Screen.h"
 #include "General_data.h"
+#include "Phone.h"
 #include "Telephone.h"
 using namespace std;
 
@@ -32,17 +33,28 @@ int main()
 	//phone5->display();
 	//phone5->display1();
 	cout << *phone5;
-	int d, p, t, n, c1;
+	int d, p, t, n, c1,z;
+	cout << "Вызов виртуальной функции через динамические объекты базового и производного классов после присваивания указателя. Хотите выполнить проверку? 1-да,любая другая клавиша-нет" << endl;
+	cin >> z;
+	if (z == 1) {
+		Telephone* spisok6;
+		spisok6 = new Telephone(current_state, dimensions, system_t, screen, general_data);
+		Touch_phone* phone6;
+		phone6 = new Touch_phone(current_state, dimensions, system_t, screen, general_data, touch);
+		spisok6 = phone6;
+		spisok6->camera_pixels();
+		phone6->camera_pixels();
+	}
 	int h;
 	int c = 0;
 	while (c == 0) {
 		c = 1;
-		cout << endl << "Вы хотите работать с 1-сенсорным телефоном, 2--общей информацией(данная информация не известна или не важна)?" << endl;
+		cout << endl << "Вы хотите работать с 1-сенсорным телефоном, 2-кнопочным телефоном или 3-общей информацией(данная информация не известна или не важна)?" << endl;
 		cin >> h;
 		try {
 			if (h < 1)
 				throw '0';
-			if (h > 2)
+			if (h > 3)
 				throw 0;
 		}
 		catch (...) {
@@ -115,6 +127,49 @@ int main()
 		} while (_getch() != 27);
 	}
 	if (h == 2) {
+		int d, p;
+		Push_button_phone* button = new Push_button_phone(0, 0, 0, 0, 0, 0, 0, 0);
+		button->read_p();
+		button->display_p();
+		do {
+			c = 0;
+			while (c == 0) {
+				c = 1;
+				cout << endl << "Выберите действие, которое хотите совершить:" << endl << "1.Вывод информации" << endl << "2.Найти диагональ экрана" << endl << "3.Ввод новых данных" << endl << "4.Выход" << endl;
+				cin >> d;
+				try {
+					if (d < 0)
+						throw '0';
+					if (d > 4)
+						throw 0;
+				}
+				catch (...) {
+					c = 0;
+					cout << "Неправильные данные, попробуйте выбрать действие заново" << endl;
+				}
+			}
+			if (d == 1) {
+				button->display_p();
+			}
+			if (d == 2)
+			{
+				cout << "Диагональ экрана(дюйм): " << button->Diagonal() << endl;
+			}
+			if (d == 3) {
+				button->read_p();
+				button->display_p();
+			}
+
+			if (d == 4) {
+				cout << "Вы действительно хотите выйти? (1-Да,Любая другая клавиша-Нет):";
+				cin >> p;
+				if (p == 1)
+					return 0;
+			}
+			cout << "Хотите продолжить? Да - любая клавиша, Нет -ESC";
+		} while (_getch() != 27);
+	}
+	if (h == 3) {
 		Telephone* spisok = new Telephone;
 		*spisok = Telephone::Telephone(current_state, dimensions, system_t, screen, general_data);
 		spisok->read();

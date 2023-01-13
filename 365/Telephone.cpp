@@ -27,6 +27,7 @@ void Telephone::read() {
 	current_state.read();
 	dimensions.read();
 	system_t.read();
+	camera_pixels();
 	screen.read();
 	general_data.read();
 }
@@ -180,6 +181,10 @@ void operator <<(ostream& o, Touch_phone p) {
 	cout << p.general_data;
 	cout << p.touch;
 }
+void Telephone::camera_pixels() {
+	cout << "¬ведите количество пикселей основной камеры:";
+	cin >> this->main_c;
+}
 
  void Touch_phone::check_year() {
 	 int p = 0;
@@ -238,4 +243,12 @@ void operator <<(ostream& o, Touch_phone p) {
 	 this->general_data = p.getGeneral_data();
 	 this->screen = p.getScreen();
 	 this->system_t = p.getSystem_t();
+ }
+ void Touch_phone::camera_pixels() {
+	 int n = touch.getCameras();
+	 int i;
+	 for (i = 0; i < n; i++) {
+		 cout << "¬ведите количество пикселей " << i + 1 << " камеры:";
+		 cin >> this->a[i];
+	 }
  }

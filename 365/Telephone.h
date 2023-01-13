@@ -17,6 +17,7 @@ protected:
 	System_t system_t;
 	Screen screen;
 	General_data general_data;
+	int main_c;
 public:
 	Telephone(Current_state current_state, Dimensions dimensions, System_t system_t, Screen screen, General_data general_data);
 	Telephone(Current_state current_state);
@@ -40,6 +41,7 @@ public:
 	friend void operator <<(ostream& o, Telephone p);
 	friend int screen_percentage(Telephone spisok);
 	void setCallsCurrent_state(Current_state current_state1);
+	virtual void camera_pixels();
 };
 
 class Touch_phone :public Telephone {
