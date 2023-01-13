@@ -141,6 +141,7 @@
     <ClInclude Include="Current_state.h" />
     <ClInclude Include="Dimensions.h" />
     <ClInclude Include="General_data.h" />
+    <ClInclude Include="Names.h" />
     <ClInclude Include="Phone.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="System_t.h" />
