@@ -33,11 +33,14 @@ int main()
 	*phone5 = *spisok5;
 	//phone5->display();
 	//phone5->display1();
+	spisok5->camera_pixels();
+	phone5->camera_pixels();
 	cout << *phone5;
 	int d, p, t, n, c1,z, f;
 	cout << "Вызов виртуальной функции через динамические объекты базового и производного классов после присваивания указателя. Хотите выполнить проверку? 1-да,любая другая клавиша-нет" << endl;
 	cin >> z;
 	if (z == 1) {
+		cout << "Начало";
 		Telephone* spisok6;
 		spisok6 = new Telephone(current_state, dimensions, system_t, screen, general_data);
 		Touch_phone* phone6;

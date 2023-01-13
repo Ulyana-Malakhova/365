@@ -49,22 +49,78 @@ void operator <<(ostream& o, Telephone p) {
 	cout << p.general_data;
 }
 void Telephone::zaryad() {
-	int charge1;
-	cout << "Сколько стало процентов заряда на телефоне?";
-	cin >> charge1;
+	int p = 0, charge1;
+	while (p == 0) {
+		p = 1;
+		cout << "Сколько стало процентов заряда на телефоне?";
+		cin >> charge1;
+		try {
+			if (charge1 < 0)
+				throw '0';
+			if (charge1 > 100)
+				throw 0;
+		}
+		catch (char c) {
+			p = 0;
+			cout << "Процент заряда меньше 0. Попробуйте ввести информацию заново" << endl;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Процент заряда больше 100. Попробуйте ввести информацию заново" << endl;
+		}
+	}
 	current_state.setCharge(charge1);
 }
 void Telephone::change() {
-	int i, t, j, k;
+	int i, t, j, k, p = 0;
 	int memory1 = current_state.getMemory();
 	string card1 = system_t.getCard();
-	cout << "Изменения с объемом памяти связаны с:" << endl << "1.Изменением состояния карты памяти" << endl << "2.Изменением объема информации" << endl;
-	cin >> i;
+	while (p == 0) {
+		p = 1;
+		cout << "Изменения с объемом памяти связаны с:" << endl << "1.Изменением состояния карты памяти" << endl << "2.Изменением объема информации" << endl;
+		cin >> i;
+		try {
+			if (i < 1)
+				throw '0';
+			if (i > 2)
+				throw 0;
+		}
+		catch (...) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте выбрать действие заново" << endl;
+		}
+	}
 	if (i == 1) {
-		cout << "1.Карту памяти ставят в телефон" << endl << "2.Карту памяти убирают из телефона" << endl;
-		cin >> j;
-		cout << "Какой объем памяти у карты?";
-		cin >> k;
+		p = 0;
+		while (p == 0) {
+			p = 1;
+			cout << "1.Карту памяти ставят в телефон" << endl << "2.Карту памяти убирают из телефона" << endl;
+			cin >> j;
+			try {
+				if (j < 1)
+					throw '0';
+				if (j > 2)
+					throw 0;
+			}
+			catch (...) {
+				p = 0;
+				cout << "Неправильные данные, попробуйте выбрать действие заново" << endl;
+			}
+		}
+		p = 0;
+		while (p == 0) {
+			p = 1;
+			cout << "Какой объем памяти у карты?";
+			cin >> k;
+			try {
+				if (k < 0)
+					throw '0';
+			}
+			catch (...) {
+				p = 0;
+				cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+			}
+		}
 		if (j == 1) {
 			if (card1 == "no") {
 				memory1 += k;
@@ -85,10 +141,36 @@ void Telephone::change() {
 		}
 	}
 	if (i == 2) {
-		cout << "1.В телефон добавляют информацию" << endl << "2.Из телефона удаляют информацию" << endl;
-		cin >> j;
-		cout << "Какой объем памяти добавили или удалили?";
-		cin >> k;
+		p = 0;
+		while (p == 0) {
+			p = 1;
+			cout << "1.В телефон добавляют информацию" << endl << "2.Из телефона удаляют информацию" << endl;
+			cin >> j;
+			try {
+				if (j < 1)
+					throw '0';
+				if (j > 2)
+					throw 0;
+			}
+			catch (...) {
+				p = 0;
+				cout << "Неправильные данные, попробуйте выбрать действие заново" << endl;
+			}
+		}
+		p = 0;
+		while (p == 0) {
+			p = 1;
+			cout << "Какой объем памяти добавили или удалили?";
+			cin >> k;
+			try {
+				if (k < 0)
+					throw '0';
+			}
+			catch (...) {
+				p = 0;
+				cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+			}
+		}
 		if (j == 1) {
 			memory1 -= k;
 			current_state.setMemory(memory1);
@@ -246,9 +328,10 @@ void Telephone::camera_pixels() {
  }
  void Touch_phone::camera_pixels() {
 	 int n = touch.getCameras();
-	 int i;
+	 int i,j;
 	 for (i = 0; i < n; i++) {
-		 cout << "Введите количество пикселей " << i + 1 << " камеры:";
+		 j = i + 1;
+		 cout << "Введите количество пикселей " << j << " камеры:";
 		 cin >> this->a[i];
 	 }
  }

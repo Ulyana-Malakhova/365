@@ -25,8 +25,20 @@ void System_t::read() {
 	cout << "Введем информацию о системе" << endl;
 	cout << "Операционная система: ";
 	cin >> opersystem;
-	cout << "Встроенная память(Гб): ";
-	cin >> internalm;
+	int p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Встроенная память(Гб): ";
+		cin >> internalm;
+		try {
+			if (internalm < 0)
+				throw '0';
+		}
+		catch (char c) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+		}
+	}
 	cout << "Карта памяти(yes/no): ";
 	cin >> card;
 }/*

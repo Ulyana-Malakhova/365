@@ -29,14 +29,42 @@ Current_state::~Current_state() {
 }
 void Current_state::read() {
 	cout << "Введем информацию о нынешнем состоянии" << endl;
-	cout << "Заряд(в процентах): ";
-	cin >> charge;
-	cout << "Свободная память(Гб): ";
-	cin >> memory;
+	int p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Заряд(в процентах): ";
+		cin >> charge;
+		try {
+			if (charge < 0)
+				throw '0';
+			if (charge > 100)
+				throw 0;
+		}
+		catch (char c) {
+			p = 0;
+			cout << "Процент заряда меньше 0. Попробуйте ввести информацию заново" << endl;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Процент заряда больше 100. Попробуйте ввести информацию заново" << endl;
+		}
+	}
+	p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Свободная память(Гб): ";
+		cin >> memory;
+		try {
+			if (memory < 0)
+				throw 0;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Объем памяти меньше 0. Попробуйте ввести информацию заново" << endl;
+		}
+	}
 	cout << "Интернет: ";
 	cin >> internet;
-	cout << "Вызовов за сегодня: ";
-	cin >> calls;
 }/*
 void Current_state::display() {
 	cout << endl;

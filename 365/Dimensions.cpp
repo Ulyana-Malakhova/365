@@ -26,14 +26,62 @@ Dimensions::~Dimensions() {
 }
 void Dimensions::read() {
 	cout << "Введем информацию о параметрах телефона" << endl;
-	cout << "Ширина(мм): ";
-	cin >> width;
-	cout << "Высота(мм): ";
-	cin >> height;
-	cout << "Толщина(мм): ";
-	cin >> thickness;
-	cout << "Вес(в граммах): ";
-	cin >> weight;
+	int p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Ширина(мм): ";
+		cin >> width;
+		try {
+			if (width < 40)
+				throw 0;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+		}
+	}
+	p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Высота(мм): ";
+		cin >> height;
+		try {
+			if (height < 90)
+				throw 0;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+		}
+	}
+	p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Толщина(мм): ";
+		cin >> thickness;
+		try {
+			if (thickness < 7)
+				throw 0;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+		}
+	}
+	p = 0;
+	while (p == 0) {
+		p = 1;
+		cout << "Вес(в граммах): ";
+		cin >> weight;
+		try {
+			if (weight < 32)
+				throw 0;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Неправильные данные, попробуйте ввести информацию заново" << endl;
+		}
+	}
 }/*
 void Dimensions::display() {
 	cout << endl;

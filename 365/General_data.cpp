@@ -22,13 +22,31 @@ General_data::~General_data() {
 
 }
 void General_data::read() {
+	int p = 0;
 	cout << "Введем информацию об общих данных" << endl;
 	cout << "Страна-производитель: ";
 	cin >> country;
 	cout << "Модель: ";
 	cin >> model;
-	cout << "Год выпуска: ";
-	cin >> year;
+	while (p == 0) {
+		p = 1;
+		cout << "Год выпуска: ";
+		cin >> year;
+		try {
+			if (year < 1876)
+				throw '0';
+			if (year > 2023)
+				throw 0;
+		}
+		catch (char c) {
+			p = 0;
+			cout << "Неверная информация, в этом году еще не было телефонов. Попробуйте ввести информацию заново" << endl;
+		}
+		catch (int c) {
+			p = 0;
+			cout << "Неверная информация, этот год еще не наступил. Попробуйте ввести информацию заново" << endl;
+		}
+	}
 }/*
 void General_data::display() {
 	cout << endl;
