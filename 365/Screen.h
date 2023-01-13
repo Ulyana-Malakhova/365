@@ -16,8 +16,8 @@ public:
 	Screen();
 	~Screen();
 	void read();
-	void display();
+	//void display();
 	int getWidth_s();
 	int getHeight_s();
-
+	friend void operator <<(ostream& o, Screen p);
 };

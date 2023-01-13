@@ -34,7 +34,7 @@ void Dimensions::read() {
 	cin >> thickness;
 	cout << "Вес(в граммах): ";
 	cin >> weight;
-}
+}/*
 void Dimensions::display() {
 	cout << endl;
 	cout << "Параметры:" << endl;
@@ -42,6 +42,9 @@ void Dimensions::display() {
 	cout << "-высота:" << height << endl;
 	cout << "-толщина:" << thickness << endl;
 	cout << "-вес:" << weight << endl;
+}*/
+void operator <<(ostream& o, Dimensions p) {
+	cout << "Параметры:" << endl << "-ширина:" << p.width << endl << "-высота:" << p.height << endl << "-толщина:" << p.thickness << endl << "-вес:" << p.weight << endl;
 }
 int Dimensions::getWidth() {
 	return width;

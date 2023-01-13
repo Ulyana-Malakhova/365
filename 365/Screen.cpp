@@ -34,7 +34,7 @@ void Screen::read() {
 	cin >> width_s;
 	cout << "Высота(мм): ";
 	cin >> height_s;
-}
+}/*
 void Screen::display() {
 	cout << endl;
 	cout << "Информация об экране:" << endl;
@@ -42,6 +42,9 @@ void Screen::display() {
 	cout << "-плотность пикселей:" << pixel << endl;
 	cout << "-ширина экрана:" << width_s << endl;
 	cout << "-высота экрана:" << height_s << endl;
+}*/
+void operator <<(ostream& o, Screen p) {
+	cout << "Информация об экране:" << endl << "-диагональ:" << p.diagonal << endl << "-плотность пикселей:" << p.pixel << endl;
 }
 int Screen::getWidth_s() {
 	return width_s;

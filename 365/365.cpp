@@ -29,14 +29,15 @@ int main()
 	spisok5->read();
 	Touch_phone* phone5 = new Touch_phone(current_state, dimensions, system_t, screen, general_data, touch);
 	*phone5 = *spisok5;
-	phone5->display();
-	phone5->display1();
-	int d, p, t, n, c;
-	int c, h;
-	c = 0;
+	//phone5->display();
+	//phone5->display1();
+	cout << *phone5;
+	int d, p, t, n, c1;
+	int h;
+	int c = 0;
 	while (c == 0) {
 		c = 1;
-		cout << "Вы хотите работать с 1-сенсорным телефоном, 2--общей информацией(данная информация не известна или не важна)?" << endl;
+		cout << endl << "Вы хотите работать с 1-сенсорным телефоном, 2--общей информацией(данная информация не известна или не важна)?" << endl;
 		cin >> h;
 		try {
 			if (h < 1)
@@ -54,8 +55,9 @@ int main()
 		phone->read1();
 		phone->read();
 		phone->check_year();
-		phone->display();
-		phone->display1();
+		cout << *phone;
+		//phone->display();
+		//phone->display1();
 		do {
 			c = 0;
 			while (c == 0) {
@@ -74,8 +76,9 @@ int main()
 				}
 			}
 			if (d == 1) {
-				phone->display();
-				phone->display1();
+				cout << *phone;
+				//phone->display();
+				//phone->display1();
 			}
 			if (d == 2)
 			{
@@ -87,8 +90,9 @@ int main()
 				phone->read1();
 				phone->read();
 				phone->check_year();
-				phone->display();
-				phone->display1();
+				cout << *phone;
+				//phone->display();
+				//phone->display1();
 			}
 			if (d == 5) {
 				int s, s2;
@@ -114,7 +118,8 @@ int main()
 		Telephone* spisok = new Telephone;
 		*spisok = Telephone::Telephone(current_state, dimensions, system_t, screen, general_data);
 		spisok->read();
-		spisok->display();
+		//spisok->display();
+		cout << *spisok;
 		spisok->number_phone();
 		do {
 			c = 0;
@@ -134,7 +139,8 @@ int main()
 				}
 			}
 			if (d == 1) {
-				spisok->display();
+				//spisok->display();
+				cout << *spisok;
 				spisok->number_phone();
 			}
 			if (d == 2)
@@ -145,7 +151,8 @@ int main()
 				spisok->change();
 			if (d == 4) {
 				spisok->read();
-				spisok->display();
+				//spisok->display();
+				cout << *spisok;
 				spisok->number_phone();
 			}
 			if (d == 5) {
@@ -154,23 +161,23 @@ int main()
 			}
 			if (d == 6) {
 				cout << "1.Хотите узнать информацию звонков после вызова" << endl << "2.Позвонить без вывода дополнительной информации" << endl << "3. Сделать сразу несколько звонков" << endl;
-				cin >> c;
+				cin >> c1;
 				Current_state calls1, calls2;
-				if (c == 1) {
+				if (c1 == 1) {
 					calls1 = spisok->getCurrent_state();
 					calls2 = calls1++;
 					spisok->setCurrent_state(calls1);
-					int c = spisok->number_calls(calls2);
-					cout << "Количество звонков до нынешнего:" << c << endl;
-					c = spisok->number_calls(calls1);
-					cout << "Количество звонков после нынешнего:" << c << endl;
+					int c2 = spisok->number_calls(calls2);
+					cout << "Количество звонков до нынешнего:" << c2 << endl;
+					c2 = spisok->number_calls(calls1);
+					cout << "Количество звонков после нынешнего:" << c2 << endl;
 				}
-				if (c == 2) {
+				if (c1 == 2) {
 					calls1 = spisok->getCurrent_state();
 					calls2 = ++calls1;
 					spisok->setCurrent_state(calls1);
-					int c = spisok->number_calls(calls1);
-					cout << "Количество звонков:" << c << endl;
+					int c2 = spisok->number_calls(calls1);
+					cout << "Количество звонков:" << c2 << endl;
 				}
 				if (c == 3) {
 					cout << "Сколько звонков вы планируете сделать?";

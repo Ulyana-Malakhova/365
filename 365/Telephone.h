@@ -25,7 +25,7 @@ public:
 	static int number;
 	static void number_phone();
 	void read();
-	void display();
+	//void display();
 	void zaryad();
 	void change();
 	int* energy_saving(int s);
@@ -37,6 +37,7 @@ public:
 	General_data getGeneral_data();
 	System_t getSystem_t();
 	void setCurrent_state(Current_state current_state);
+	friend void operator <<(ostream& o, Telephone p);
 	friend int screen_percentage(Telephone spisok);
 	void setCallsCurrent_state(Current_state current_state1);
 };
@@ -50,7 +51,8 @@ private:
 public:
 	Touch_phone(Current_state current_state, Dimensions dimensions, System_t system_t, Screen screen, General_data general_data, Touch touch);
 	void read1();
-	void display1();
+	//void display1();
+	friend void operator <<(ostream& o, Touch_phone p);
 	int* energy_saving(int s, int a);
 	void camera_pixels();
 	void check_year();

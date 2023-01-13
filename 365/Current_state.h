@@ -17,7 +17,8 @@ public:
 	Current_state();
 	~Current_state();
 	void read();
-	void display();
+	//void display();
+	friend void operator <<(ostream& o, Current_state p);
 	void setCharge(int a);
 	void setMemory(int a);
 	void setEnergy(string a);

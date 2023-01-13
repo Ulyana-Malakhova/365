@@ -29,13 +29,16 @@ void General_data::read() {
 	cin >> model;
 	cout << "√од выпуска: ";
 	cin >> year;
-}
+}/*
 void General_data::display() {
 	cout << endl;
 	cout << "ќбщие данные:" << endl;
 	cout << "-страна-производитель:" << country << endl;
 	cout << "-модель:" << model << endl;
 	cout << "-год выпуска:" << year << endl;
+}*/
+void operator <<(ostream& o, General_data p) {
+	cout << "ќбщие данные:" << endl << "-страна-производитель:" << p.country << endl << "-модель:" << p.model << endl << "-год выпуска:" << p.year << endl;
 }
 int General_data::getYear() {
 	return year;

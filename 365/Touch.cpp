@@ -56,7 +56,7 @@ void Touch::read() {
 	}
 	cout << "Геолокация(yes-включена/no-выключена): ";
 	cin >> geo;
-}
+}/*
 void Touch::display() {
 	cout << endl;
 	cout << "Информация о сенсорном телефоне:" << endl;
@@ -64,6 +64,9 @@ void Touch::display() {
 	cout << "-количество камер:" << cameras << endl;
 	cout << "-количество мегапикселей фронтальной камеры:" << front_c << endl;
 	cout << "-геолокация(yes-включена/no-выключена):" << geo << endl;
+}*/
+void operator <<(ostream& o, Touch p) {
+	cout << "Информация о сенсорном телефоне:" << endl << "-состояние WI-FI(yes-включен/no-выключен):" << p.wifi << endl << "-количество камер:" << p.cameras << endl << "-количество мегапикселей фронтальной камеры:" << p.front_c << endl << "-геолокация(yes-включена/no-выключена):" << p.geo << endl;
 }
 int Touch::getCameras() {
 	return cameras;

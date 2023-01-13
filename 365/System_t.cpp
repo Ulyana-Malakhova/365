@@ -29,13 +29,16 @@ void System_t::read() {
 	cin >> internalm;
 	cout << " арта пам€ти(yes/no): ";
 	cin >> card;
-}
+}/*
 void System_t::display() {
 	cout << endl;
 	cout << "—истема:" << endl;
 	cout << "-операционна€ система:" << opersystem << endl;
 	cout << "-встроенна€ пам€ть:" << internalm << endl;
 	cout << "-карта пам€ти:" << card << endl;
+}*/
+void operator <<(ostream& o, System_t p) {
+	cout << "—истема:" << endl << "-операционна€ система:" << p.opersystem << endl << "-встроенна€ пам€ть:" << p.internalm << endl << "-карта пам€ти:" << p.card << endl;
 }
 string System_t::getCard() {
 	return card;

@@ -16,7 +16,8 @@ public:
 	Dimensions();
 	~Dimensions();
 	void read();
-	void display();
+	//void display();
+	friend void operator <<(ostream& o, Dimensions p);
 	int getWidth();
 	int getHeight();
 

@@ -15,6 +15,7 @@ public:
 	Touch(int cameras);
 	Touch();
 	void read();
-	void display();
+	//void display();
 	int getCameras();
+	friend void operator <<(ostream& o, Touch p);
 };

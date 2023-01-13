@@ -15,7 +15,8 @@ public:
 	System_t();
 	~System_t();
 	void read();
-	void display();
+	//void display();
+	friend void operator <<(ostream& o, System_t p);
 	string getCard();
 	void setCard(string a);
 };

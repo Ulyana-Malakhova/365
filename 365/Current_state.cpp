@@ -37,7 +37,7 @@ void Current_state::read() {
 	cin >> internet;
 	cout << "Вызовов за сегодня: ";
 	cin >> calls;
-}
+}/*
 void Current_state::display() {
 	cout << endl;
 	cout << "Нынешнее состояние:" << endl;
@@ -46,6 +46,9 @@ void Current_state::display() {
 	cout << "-интернет:" << internet << endl;
 	cout << "-вызовов сегодня:" << calls << endl;
 	cout << "-режим энергосбережения:" << energy << endl;
+}*/
+void operator <<(ostream& o, Current_state p) {
+	cout << "Нынешнее состояние:" << endl << "-заряд:" << p.charge << endl << "-свободная память:" << p.memory << endl << "-интернет:" << p.internet << endl;
 }
 void Current_state::setCharge(int a) {
 	this->charge = a;

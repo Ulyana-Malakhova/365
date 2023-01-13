@@ -15,7 +15,8 @@ public:
 	General_data();
 	~General_data();
 	void read();
-	void display();
+	friend void operator <<(ostream& o, General_data p);
+	//void display();
 	int getYear();
 	void setYear(int a);
 };
