@@ -30,7 +30,6 @@ public:
 	void change();
 	int* energy_saving(int s);
 	int& check_memory(int s);
-	//int number_calls();
 	int number_calls(Current_state current_state1);
 	Screen getScreen();
 	Dimensions getDimensions();
