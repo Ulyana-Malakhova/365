@@ -34,6 +34,8 @@ public:
 	Screen getScreen();
 	Dimensions getDimensions();
 	Current_state getCurrent_state();
+	General_data getGeneral_data();
+	System_t getSystem_t();
 	void setCurrent_state(Current_state current_state);
 	friend int screen_percentage(Telephone spisok);
 	void setCallsCurrent_state(Current_state current_state1);
@@ -52,4 +54,5 @@ public:
 	int* energy_saving(int s, int a);
 	void camera_pixels();
 	void check_year();
+	void operator=(Telephone p);
 };

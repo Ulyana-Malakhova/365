@@ -116,6 +116,12 @@ Dimensions Telephone::getDimensions() {
 Current_state Telephone::getCurrent_state() {
 	return current_state;
 }
+System_t Telephone::getSystem_t() {
+	return system_t;
+}
+General_data Telephone::getGeneral_data() {
+	return general_data;
+}
 int Telephone::number_calls(Current_state current_state1) {
 	int c = current_state1.getCalls();
 	return c;
@@ -210,4 +216,11 @@ void Touch_phone::read1() {
 		 s -= f;
 		 return &s;
 	 }
+ }
+ void Touch_phone::operator=(Telephone p) {
+	 this->current_state = p.getCurrent_state();
+	 this->dimensions = p.getDimensions();
+	 this->general_data = p.getGeneral_data();
+	 this->screen = p.getScreen();
+	 this->system_t = p.getSystem_t();
  }

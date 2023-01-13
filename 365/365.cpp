@@ -24,6 +24,13 @@ int main()
 	Screen screen = Screen::Screen(0, "pixel", 0, 0);
 	General_data general_data = General_data::General_data("country", "model", 0);
 	Touch touch = Touch::Touch("wifi", 0, "geo", 0);
+	cout << "Работа с перегрузкой оператора присваивания объекту производного класса объектов базового класса" << endl;
+	Telephone* spisok5 = new Telephone(current_state, dimensions, system_t, screen, general_data);
+	spisok5->read();
+	Touch_phone* phone5 = new Touch_phone(current_state, dimensions, system_t, screen, general_data, touch);
+	*phone5 = *spisok5;
+	phone5->display();
+	phone5->display1();
 	int d, p, t, n, c;
 	int c, h;
 	c = 0;
